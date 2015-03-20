@@ -1,0 +1,37 @@
+{
+  "name": "react-country-province",
+  "version": "0.0.0",
+  "description": "Country and Province/State typeahead selector using react.",
+  "main": "index.js",
+  "scripts": {
+    "example": "beefy example/index.jsx"
+  },
+  "keywords": [
+    "react",
+    "country",
+    "state",
+    "region",
+    "select"
+  ],
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify",
+      "cssify"
+    ]
+  },
+  "author": "Tyler Bushnell <wunderlinks@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cssify": "^0.7.0",
+    "envify": "^3.4.0",
+    "react": "^0.13.1",
+    "react-select": "^0.4.0",
+    "reactify": "^1.1.0"
+  },
+  "devDependencies": {
+    "beefy": "^2.1.3",
+    "browserify": "^9.0.3",
+    "watchify": "^2.4.0"
+  }
+}
