@@ -27,19 +27,44 @@ for( country in countries ){
   }
 }
 
-function logChange(val) {
+function updateRegions(val) {
     console.log("Selected: " + val);
 }
 
+opts = {
+  country:{
+    name:'country',
+    values:'code',
+    el:'code'
+    },
+  region:{
+    name:'region',
+    values:'label'
+    }
+  }
 
-module.exports = function (el, opts) {
+
+module.exports = function (opts) {
   if( opts.defaultCss ){
     require('./default.css')
   }
-  React.render(React.createElement(Select, {
-    name: "form-field-name",
-    value: "one",
-    options: options,
-    onChange: logChange,
-  }), el) 
+
+  if( opts.country ){
+    var rOpts = {
+      name: opts.country.name
+      value: "",
+      options: countryOptions
+    }
+    if( opts.country.value ){
+      rOpts.value = opts.country.value
+    }
+    if( opts.region ){
+      rOpts.onChange = updateRegions()
+    }
+    React.render(React.createElement(Select, rOpts), opts.country.el) 
+  }
+
+  if( opts.region ){
+  }
+
 }
