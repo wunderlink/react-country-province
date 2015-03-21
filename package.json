@@ -4,7 +4,9 @@
   "description": "Country and Province/State typeahead selector using react.",
   "main": "index.js",
   "scripts": {
-    "example": "beefy example/index.jsx"
+    "build": "node country-province-build.js",
+    "start": "npm run build && node index.js",
+    "example": "npm run build && beefy example/index.jsx"
   },
   "keywords": [
     "react",
@@ -25,6 +27,7 @@
   "dependencies": {
     "cssify": "^0.7.0",
     "envify": "^3.4.0",
+    "jsonfile": "^2.0.0",
     "react": "^0.13.1",
     "react-select": "^0.4.0",
     "reactify": "^1.1.0"

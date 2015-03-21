@@ -1,11 +1,10 @@
-require('./style.css')
 
 var React = require('react')
 var ReactCR = require('..')
 
 
 
-ReactCR(document.body, {})
+ReactCR(document.body, {defaultCss:true})
 
     
 
