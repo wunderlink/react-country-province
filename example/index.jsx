@@ -22,26 +22,25 @@ var ReactCR = require('..')
     document.body,
 
     function(){
-    console.log( 'QS', document.querySelector('.selectHolder') )
-opts = {
-  country:{
-    name:'countrySelect',
-    label:'Country',
-    value:'',
-    twoLetterValues:true,
-    el:document.getElementById("countryHolder")
-    },
-  province:{
-    name:'provinceSelect',
-    label:'State/Province',
-    value:'',
-    twoLetterValues:false,
-    el:document.getElementById("provinceHolder")
-    },
-  defaultCss: true
-}
+      opts = {
+        country:{
+          name:'countrySelect',
+          label:'Country',
+          value:'',
+          twoLetterValues:true,
+          el:document.getElementById("countryHolder")
+          },
+        province:{
+          name:'provinceSelect',
+          label:'State/Province',
+          value:'',
+          twoLetterValues:false,
+          el:document.getElementById("provinceHolder")
+          },
+        defaultCss: true
+      }
 
-ReactCR(opts)
+      ReactCR(opts)
     }
   )
 

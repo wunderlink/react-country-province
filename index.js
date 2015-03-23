@@ -32,7 +32,7 @@ for( index in countries ){
   }
 }
 
-function updateprovinces(val) {
+function updateProvinces(val) {
   if( provinceOptions[val] ){
     renderProvinces(val)
   }
@@ -63,7 +63,7 @@ module.exports = function (topts) {
       rOpts.value = opts.country.value
     }
     if( opts.province ){
-      rOpts.onChange = updateprovinces
+      rOpts.onChange = updateProvinces
     }
     React.render(React.createElement(Select, rOpts), opts.country.el) 
   }
