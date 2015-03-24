@@ -68,6 +68,9 @@ module.exports = function (topts) {
     React.render(React.createElement(Select, rOpts), opts.country.el) 
   }
 
+  if( opts.province ){
+    renderProvinces(province)
+  }
 }
 
 function renderProvinces(province){
