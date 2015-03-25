@@ -3,14 +3,8 @@ var React = require('react')
 var Select = require('react-select')
 var countries = require('./countries.json')
 
-var options = [ 
-    { value: 'one', label: 'One' },
-    { value: 'two', label: 'Two' }
-];
-
 var countryOptions = [];
 var provinceOptions = {};
-console.log("COUNTRIES", countries)
 
 for( index in countries ){
   var country = countries[index]
@@ -37,7 +31,6 @@ function updateProvinces(val) {
     renderProvinces(val)
   }
   console.log("val", val)
-  console.log("provinces", provinceOptions)
 }
 
 var prov = ''
@@ -48,6 +41,7 @@ module.exports = function (topts) {
   opts = topts
   prov = opts.province.el
 
+  console.log("provinces", topts)
   if( opts.defaultCss ){
     require('./default.css')
   }
@@ -55,8 +49,7 @@ module.exports = function (topts) {
   if( opts.country ){
     var rOpts = {
       name: opts.country.name,
-      value: "",
-      placeholder: opts.province.label,
+      placeholder: opts.country.label,
       options: countryOptions
     }
     if( opts.country.value ){
@@ -69,7 +62,7 @@ module.exports = function (topts) {
   }
 
   if( opts.province ){
-    renderProvinces(province)
+    renderProvinces(opts.province.value)
   }
 }
 
@@ -77,7 +70,6 @@ function renderProvinces(province){
   if( opts.province ){
     var rOpts = {
       name: opts.province.name,
-      value: "",
       placeholder: opts.province.label,
       options: []
     }

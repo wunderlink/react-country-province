@@ -6,11 +6,10 @@ var ReactCR = require('..')
   React.render(
     (
       <div>
-        <h1>ReactPivot</h1>
+        <h1>React Country/Region Select</h1>
 
         <p>
-          ReactPivot is a data-grid component with pivot-table-like functionality
-          for data display, filtering, and exploration.
+          Making country / region selection suck less.
         </p>
 
         <div id="countryHolder">
