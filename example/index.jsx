@@ -25,15 +25,15 @@ var ReactCR = require('..')
         country:{
           name:'countrySelect',
           label:'Country',
-          value:'',
+          value:'US',
           twoLetterValues:true,
           el:document.getElementById("countryHolder")
           },
         province:{
           name:'provinceSelect',
           label:'State/Province',
-          value:'',
-          twoLetterValues:false,
+          value:'CA',
+          twoLetterValues:true,
           el:document.getElementById("provinceHolder")
           },
         defaultCss: true

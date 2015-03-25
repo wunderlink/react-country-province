@@ -6,12 +6,20 @@ var countries = require('./countries.json')
 var countryOptions = [];
 var provinceOptions = {};
 
+var bringToTop = ['US', 'GB', 'AU'];
+
 for( index in countries ){
   var country = countries[index]
-  countryOptions.push({
+
+  var c = {
     label: country.name,
     value: country.code
-  })
+  }
+  if( bringToTop.indexOf(country.code) > -1 ){
+    countryOptions.unshift(c)
+  } else {
+    countryOptions.push(c)
+  }
   if( country.regions ){
     for( ind in country.regions ){
       var province = country.regions[ind]
@@ -26,22 +34,11 @@ for( index in countries ){
   }
 }
 
-function updateProvinces(val) {
-  if( provinceOptions[val] ){
-    renderProvinces(val)
-  }
-  console.log("val", val)
-}
-
-var prov = ''
-
 var opts = {}
 
 module.exports = function (topts) {
   opts = topts
-  prov = opts.province.el
 
-  console.log("provinces", topts)
   if( opts.defaultCss ){
     require('./default.css')
   }
@@ -56,31 +53,37 @@ module.exports = function (topts) {
       rOpts.value = opts.country.value
     }
     if( opts.province ){
-      rOpts.onChange = updateProvinces
+      rOpts.onChange = renderProvinces
     }
     React.render(React.createElement(Select, rOpts), opts.country.el) 
   }
 
   if( opts.province ){
-    renderProvinces(opts.province.value)
+    renderProvinces(opts.country.value)
   }
 }
 
-function renderProvinces(province){
+function renderProvinces(country){
   if( opts.province ){
     var rOpts = {
       name: opts.province.name,
       placeholder: opts.province.label,
       options: []
     }
-    if( provinceOptions[province] ){
-      rOpts.options = provinceOptions[province]
+    if( provinceOptions[country] ){
+      rOpts.options = provinceOptions[country]
     }
-    if( opts.province.value ){
-      rOpts.value = opts.province.value
-    }
-    if( opts.province.value ){
-      rOpts.value = opts.province.value
+    if( opts.province.value && provinceOptions[country] ){
+      key = 'label'
+      if( opts.province.twoLetterValues ){
+        key = 'value'
+      }
+      for( index in provinceOptions[country] ){
+        if( provinceOptions[country][index][key] == opts.province.value ){
+          rOpts.value = opts.province.value
+          break
+        }
+      }
     }
     React.render(React.createElement(Select, rOpts), opts.province.el) 
   }
