@@ -39,7 +39,7 @@ var ReactCR = require('..')
         defaultCss: true
       }
 
-      ReactCR(opts)
+      rcp = new ReactCR(opts)
     }
   )
 
