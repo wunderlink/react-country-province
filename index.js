@@ -18,10 +18,10 @@ reactCountryProvince = function(topts){
   this.countryOptions = cp.countryOptions
   this.provinceOptions = cp.provinceOptions
 
-  if( opts.defaultCss ){
+  if( this.opts.defaultCss ){
     require('./default.css')
   }
-  if( opts.country ){
+  if( this.opts.country ){
     var rOpts = {
       name: this.opts.country.name,
       placeholder: this.opts.country.label,
