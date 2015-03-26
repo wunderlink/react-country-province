@@ -1,6 +1,6 @@
 {
   "name": "react-country-province",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Country and Province/State typeahead selector using react.",
   "main": "index.js",
   "scripts": {
