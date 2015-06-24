@@ -36,5 +36,9 @@
     "beefy": "^2.1.3",
     "browserify": "^9.0.3",
     "watchify": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wunderlink/react-country-province.git"
   }
 }
