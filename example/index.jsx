@@ -22,6 +22,7 @@ var ReactCR = require('..')
 
     function(){
       opts = {
+        countryDefault: 'US',
         country:{
           name:'countrySelect',
           label:'Country',

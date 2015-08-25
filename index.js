@@ -39,8 +39,15 @@ reactCountryProvince = function(topts){
     React.render(React.createElement(Select, rOpts), this.opts.country.el) 
   }
 
+  var country;
+  if( this.opts.country ){
+    country = this.opts.country.value
+  } else if( this.opts.countryDefault ){
+    country = this.opts.countryDefault
+  }
+
   if( this.opts.province ){
-    this.renderProvinces(this.opts.country.value)
+    this.renderProvinces(country)
   }
 }
 
@@ -80,7 +87,11 @@ reactCountryProvince.prototype.renderProvinces = function(country){
   var rOpts = {
     name: this.opts.province.name,
     placeholder: this.opts.province.label,
+    multi: false,
     options: []
+  }
+  if( this.opts.province.multi ){
+    rOpts.multi = true
   }
   if( this.provinceOptions[country] ){
     rOpts.options = this.provinceOptions[country]
