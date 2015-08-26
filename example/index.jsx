@@ -1,7 +1,7 @@
 
 var React = require('react')
-//var ReactCR = require('..')
-var ReactCR = require('../lib/index.jsx')
+var ReactCR = require('..')
+//var ReactCR = require('../lib/index.jsx')
 
 
   React.render(
@@ -22,6 +22,28 @@ var ReactCR = require('../lib/index.jsx')
     document.body,
 
     function(){
+
+      opts = {
+        countryDefault: 'US',
+        country:{
+          name:'countrySelect',
+          label:'Country',
+          value:'US',
+          twoLetterValues:true,
+          el:document.getElementById("countryHolder")
+          },
+        province:{
+          name:'provinceSelect',
+          label:'State/Province',
+          value:'CA',
+          twoLetterValues:true,
+          el:document.getElementById("provinceHolder")
+          },
+        defaultCss: true
+      }
+
+      rcp = new ReactCR(opts)
+/*
       opts = {
         country:true,
         countryName:'countrySelect',
@@ -36,7 +58,8 @@ var ReactCR = require('../lib/index.jsx')
         defaultCss: true
       }
 
-      React.createElement(ReactCR, opts)
+      React.render(React.createElement(ReactCR, opts))
+*/
     }
   )
 

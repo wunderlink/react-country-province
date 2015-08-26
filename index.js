@@ -1,8 +1,8 @@
 
 var React = require('react')
 var Select = require('react-select')
-var countries = require('./countries.json')
-var provinces = require('./provinces.json')
+var countries = require('./fixtures/countries.json')
+var provinces = require('./fixtures/provinces.json')
 
 
 reactCountryProvince = function(topts){
@@ -19,7 +19,7 @@ reactCountryProvince = function(topts){
   this.provinceOptions = cp.provinceOptions
 
   if( this.opts.defaultCss ){
-    require('./default.css')
+    require('./lib/default.css')
   }
 
   if( this.opts.country ){
