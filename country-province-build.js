@@ -2,8 +2,8 @@
 var jf = require("jsonfile")
 var fs = require("fs")
 
-var provinceFile = './provinces.json'
-var countryFile = './countries.json'
+var provinceFile = './fixtures/provinces.json'
+var countryFile = './fixtures/countries.json'
 var crDir = './vendor/countries-and-provinces-states-regions'
 var countrySource = require(crDir+'/countries.json')
 

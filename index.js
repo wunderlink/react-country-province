@@ -21,6 +21,7 @@ reactCountryProvince = function(topts){
   if( this.opts.defaultCss ){
     require('./default.css')
   }
+
   if( this.opts.country ){
     var rOpts = {
       name: this.opts.country.name,
