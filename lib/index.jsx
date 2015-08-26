@@ -26,8 +26,8 @@ var ReactCountryProvince = module.exports = React.createClass({
   },
 
   getInitialState : function() {
-    var country = ''
-    var province = ''
+    var country = null
+    var province = null
     if (this.props.countryValue) {
       country = this.props.countryValue
     }
@@ -50,7 +50,7 @@ var ReactCountryProvince = module.exports = React.createClass({
       province: true,
       provinceName: 'reactProvince',
       provinceLabel: 'State/Province',
-      provinceMulti: false,
+      provinceMulti: true,
       defaultCss: true
     }
   },
@@ -71,13 +71,19 @@ var ReactCountryProvince = module.exports = React.createClass({
   },
 
   _updateCountry : function(newCountry) {
-    this.setState({countryValue:newCountry, provinceValue:''})
+    if (!newCountry) {
+      newCountry = null
+    }
+    this.setState({countryValue:newCountry, provinceValue:null})
     if (this.props.onCountryChange) {
       this.props.onCountryChange(newCountry)
     }
   },
 
   _updateProvince : function(newProvince) {
+    if (!newProvince) {
+      newProvince = null
+    }
     this.setState({provinceValue:newProvince})
     if (this.props.onProvinceChange) {
       this.props.onProvinceChange(newProvince)
